@@ -17,9 +17,7 @@ interface AvgRangeByMakeProps {
   avgRangeByMake: Array<AvgRangeByMakeType>;
 }
 
-const AvgRangeByMake: React.FC<AvgRangeByMakeProps> = ({
-  avgRangeByMake,
-}: AvgRangeByMakeProps) => {
+const AvgRangeByMake: React.FC<AvgRangeByMakeProps> = ({avgRangeByMake}: AvgRangeByMakeProps) => {
   const [topAvgRange, setTopAvgRange] = useState<AvgRangeByMakeType | null>(
     null
   );

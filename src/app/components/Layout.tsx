@@ -3,6 +3,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Overview from "./overview/Overview";
 import Barchart from "./Charts/Barchart";
 import AvgRangeByMake from "./overview/AvrageRangeByMake";
+import TableComponent from "./Tablecomponet";
+import Areachart from "./Charts/AreaChart";
 
 // import Piechart from "./Charts/PieChart";
 
@@ -89,11 +91,9 @@ const Layout: React.FC<LayoutProps> = () => {
 
   return (
     <Tabs defaultValue="Overview" className="py-3">
-      <TabsList className="grid grid-cols-4 w-96 bg-[#27272A] gap-2">
-        <TabsTrigger value="Overview">Overview</TabsTrigger>
-        <TabsTrigger value="Analytics">Analytics</TabsTrigger>
-        <TabsTrigger value="Reports">Reports</TabsTrigger>
-        <TabsTrigger value="Notification">Notification</TabsTrigger>
+      <TabsList className="grid grid-cols-2 w-96 bg-[#27272A] gap-2 outline-none">
+        <TabsTrigger value="Overview" className="hover:text-red-500 ">Overview</TabsTrigger>
+        <TabsTrigger value="Analytics" className="hover:text-red-500">Analytics</TabsTrigger>
       </TabsList>
       <TabsContent value="Overview" className="flex flex-col gap-4">
         <div className="flex flex-wrap items-center w-full gap-4">
@@ -135,9 +135,16 @@ const Layout: React.FC<LayoutProps> = () => {
         </div>
       </TabsContent>
 
-      <TabsContent value="Analytics"></TabsContent>
-      <TabsContent value="Reports">Reports</TabsContent>
-      <TabsContent value="Notification">Notification</TabsContent>
+      <TabsContent value="Analytics" className="flex w-full">
+      <div className="flex flex-wrap w-full gap-4">
+          <div className="flex-1 w-full lg:w-1/2">
+          <TableComponent avgRangeByMake={avgRangeByMake} />
+          </div>
+          <div className="flex w-full lg:w-1/2">
+          <Areachart makeCounts={makeCounts}/>
+          </div>
+        </div>
+      </TabsContent>
     </Tabs>
   );
 };

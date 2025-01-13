@@ -23,7 +23,7 @@ const Overview: React.FC<OverviewProps> = ({
     <Card className="bg-[#09090B] border-[#27272A] flex md:flex-col">
       <CardHeader>
         <CardTitle className="text-white text-md text-left">{title}</CardTitle>
-        <CardDescription className="text-4xl text-white">
+        <CardDescription className="text-4xl text-white text-left">
           {item} KM
         </CardDescription>
       </CardHeader>
